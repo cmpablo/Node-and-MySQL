@@ -17,7 +17,9 @@
   },
   "homepage": "https://github.com/cmpablo/Node-and-MySQL#readme",
   "dependencies": {
+    "chalk": "^2.4.1",
     "cli-table": "^0.3.1",
+    "colors": "^1.2.1",
     "inquirer": "^5.2.0",
     "mysql": "^2.15.0"
   }

@@ -8,8 +8,8 @@ Bamazon is an Amazon-like CLI app created with Node and MySQL.
 
 Customer View | Actions (via prompt input)
 --------------- | -----------------------------
-Customer chooses their item, inputs the item's ID number, and their desired quantities | Bamazon checks if there is enough inventory to fulfill the order and provides either a success message or an out-of-stock message
---------------- | -----------------------------
+Customer inputs the item's ID number and their desired quantities | Bamazon checks if there is enough inventory to fulfill the order and provides either a success message or an out-of-stock message
+
 Manager View | Actions (via prompt choices)
 --------------- | -----------------------------
 View Products for Sale | View the full inventory

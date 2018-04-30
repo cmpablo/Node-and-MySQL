@@ -14,10 +14,10 @@ var connection = mysql.createConnection({
 connection.connect(function (err) {
     if (err) throw err;
     console.log(chalk.yellow.inverse("\nConnected as id " + connection.threadId));
-    checkAndPurchase();
+    orderProcess();
 });
 
-function checkAndPurchase() {
+function orderProcess() {
     // display items for purchase
     console.log(chalk.cyan("\n\nWelcome to Bamazon! Store of Random Things ........................\n\n"));
     connection.query("SELECT * FROM products", function (err, res) {
@@ -88,8 +88,8 @@ function checkAndPurchase() {
 
                     // if out of stock
                     console.log(chalk.red.inverse("\nWe're sorry. We currently have " + prodChoice.stock_quantity + " items in " + prodChoice.product_name));
-                    console.log(chalk.red("\nPlease adjust your quantity or check again later."));
-                    checkAndPurchase();
+                    console.log(chalk.red("\nPlease adjust your quantity or try again later."));
+                    orderProcess();
                 };
             });
     });

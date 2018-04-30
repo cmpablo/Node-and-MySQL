@@ -48,6 +48,7 @@ function start() {
                 case "Add new product":
                     addNewProduct();
                     break;
+
                 case "Exit":
                     connection.end();
                     break;
@@ -90,7 +91,7 @@ function viewLowInventory() {
             };
         };
 
-        console.log(chalk.cyan("\n\nBamazon Low Inventory ..................................................\n"))
+        console.log(chalk.red.inverse("\n\nALERT! Low Inventory!..................................................\n"))
         console.log("\n" + table.toString() + "\n\n");
 
         start();
@@ -151,7 +152,7 @@ function updateInventory() {
                     function (err, res) {
                         if (err) throw err;
 
-                        console.log(chalk.cyan("\n\n" + prodChoice.product_name + " has been updated ..................................................\n\n"));
+                        console.log(chalk.green.inverse("\n\n" + prodChoice.product_name + " has been updated ..................................................\n\n"));
 
                         start();
                     });
@@ -220,7 +221,7 @@ function addNewProduct() {
                     function (err, res) {
                         if (err) throw err;
 
-                        console.log(chalk.green.inverse("\n\n" + answer.quantity + " units of " + answer.item + " has been added to the Bamazon store ..................................................\n\n"));
+                        console.log(chalk.magenta.inverse("\n\n" + answer.quantity + " units of " + answer.item + " has been added to the Bamazon store ..................................................\n\n"));
 
                         start();
                     });

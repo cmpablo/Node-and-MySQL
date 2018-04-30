@@ -15,11 +15,11 @@ connection.connect(function (err) {
     if (err) throw err;
     console.log(chalk.yellow.inverse("\nConnected as id " + connection.threadId));
     checkAndPurchase();
-})
+});
 
 function checkAndPurchase() {
     // display items for purchase
-    console.log(chalk.cyan("\n\nWelcome to my store of random things!........................\n\n"));
+    console.log(chalk.cyan("\n\nWelcome to Bamazon! Store of Random Things ........................\n\n"));
     connection.query("SELECT * FROM products", function (err, res) {
         if (err) throw err;
 
@@ -90,7 +90,7 @@ function checkAndPurchase() {
                     console.log(chalk.red.inverse("\nWe're sorry. We currently have " + prodChoice.stock_quantity + " items in " + prodChoice.product_name));
                     console.log(chalk.red("\nPlease adjust your quantity or check again later."));
                     checkAndPurchase();
-                }
-            })
-    })
-}
+                };
+            });
+    });
+};

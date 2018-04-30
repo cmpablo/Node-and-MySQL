@@ -56,8 +56,7 @@ function start() {
 };
 
 function viewProducts() {
-    var query = "SELECT * FROM products";
-    connection.query(query, function (err, res) {
+    connection.query("SELECT * FROM products", function (err, res) {
         if (err) throw err;
 
         var table = new Table({
@@ -77,8 +76,7 @@ function viewProducts() {
 };
 
 function viewLowInventory() {
-    var query = "SELECT * FROM products";
-    connection.query(query, function (err, res) {
+    connection.query("SELECT * FROM products", function (err, res) {
         if (err) throw err;
 
         var table = new Table({
@@ -153,7 +151,76 @@ function updateInventory() {
                     function (err, res) {
                         if (err) throw err;
 
-                        console.log(chalk.cyan("\n\n" + prodChoice.product_name + " has been updated  ..................................................\n\n"));
+                        console.log(chalk.cyan("\n\n" + prodChoice.product_name + " has been updated ..................................................\n\n"));
+
+                        start();
+                    });
+            });
+    });
+}
+
+function addNewProduct() {
+    connection.query("SELECT * FROM products", function (err, res) {
+        if (err) throw err;
+
+        // what to update and how many?
+        inquirer
+            .prompt([{
+                    name: "item",
+                    type: "input",
+                    message: "Item Name: ",
+                    validate: function (value) {
+                        if (value) {
+                            return true;
+                        } return false;
+                    }
+                },
+                {
+                    name: "dept",
+                    type: "list",
+                    message: "Department: ",
+                    choices: [
+                        "Pet Novelties",
+                        "Fashion",
+                        "Toys and Games",
+                        "Other"
+                    ]
+                },
+                {
+                    name: "price",
+                    type: "input",
+                    message: "Price per unit: ",
+                    validate: function (value) {
+                        if (isNaN(value) === false) {
+                            return true;
+                        }
+                        return false;
+                    }
+                },
+                {
+                    name: "quantity",
+                    type: "input",
+                    message: "Total quantity of units: ",
+                    validate: function (value) {
+                        if (isNaN(value) === false) {
+                            return true;
+                        }
+                        return false;
+                    }
+                }
+            ])
+            .then(function (answer) {
+                connection.query(
+                    "INSERT INTO products SET ?", {
+                            product_name: answer.item,
+                            department_name: answer.dept,
+                            price: answer.price,
+                            stock_quantity: answer.quantity
+                        },
+                    function (err, res) {
+                        if (err) throw err;
+
+                        console.log(chalk.green.inverse("\n\n" + answer.quantity + " units of " + answer.item + " has been added to the Bamazon store ..................................................\n\n"));
 
                         start();
                     });

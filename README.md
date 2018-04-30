@@ -20,6 +20,8 @@ Exit                   | Exit prompt
 
 ### GIFs
 
+:point_right: GIFs play through and finish with a 5 second delay before replaying
+
 Customer View - Purchase<br/>
 ![Cust Purchase](images/bamazon_cust_purchase.gif)
 

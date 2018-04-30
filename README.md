@@ -20,7 +20,43 @@ Exit | Exit prompt
 
 ### GIFs
 
-### Screenshots of Notifications
+Customer View - Purchase
+![Cust Purchase](images/bamazon_cust_purchase.gif)
+
+Customer View - Out-of-Stock
+![Cust Out-of-Stock](images/bamazon_cust_out_of_stock.gif)
+
+Manager View - View Products
+![Mgr View Prod](images/bamazon_mgr_view_products.gif)
+
+Manager View - View Low Inventory
+![Mgr View Low Inv](images/bamazon_mgr_low_inventory.gif)
+
+Manager View - Update Inventory
+![Mgr Update Inv](images/bamazon_mgr_update_inventory.gif)
+
+Manager View - Add New Item
+![Mgr Add New Prod](images/bamazon_mgr_add_new_item.gif)
+
+### Detail Screenshots
+
+Customer View - Successful Purchase Message
+![Cust Purchase Success](images/cust_purchase.jpg)
+
+Customer View - Out-of-Stock Message
+![Cust Out-of-Stock Msg](images/cust_out_of_stock.jpg)
+
+Manager View - Prompt
+![Mgr Prompt](images/mgr_prompt.jpg)
+
+Manager View - Low Inventory Message
+![Mgr Low Inv Msg](images/mgr_low_inventory.jpg)
+
+Manager View - Update Inventory Message
+![Mgr Update Inv Msg](images/mgr_update_inventory.jpg)
+
+Manager View - Add New Product Message
+![Mgr New Prod Msg](images/mgr_add_new_item.jpg)
 
 ### Technologies Applied
 

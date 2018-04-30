@@ -6,8 +6,8 @@ var chalk = require('chalk');
 var connection = mysql.createConnection({
     host: 'localhost',
     port: 8889,
-    user: 'root',
-    password: 'root',
+    user: '', // username
+    password: '', // password
     database: 'bamazon_db'
 });
 
@@ -66,10 +66,10 @@ function orderProcess() {
 
                 if (qtyChoice < prodChoice.stock_quantity) {
                     // if in stock
-                    console.log(chalk.inverse.green("\nYour item(s) are available! Your order will be shipped in 1-2 business days."));
-                    console.log(chalk.magenta("\n-------------------------------------------------------------------------------"));
-                    console.log(chalk.green("\nYour total cost for " + qtyChoice + " " + prodChoice.product_name + " is $" + totalCost + "."));
-                    console.log(chalk.green("\nThank you! Come again!"));
+                    console.log(chalk.inverse.greenBright("\nYour item(s) are available! Your order will be shipped in 1-2 business days."));
+                    console.log(chalk.green("\n-------------------------------------------------------------------------------"));
+                    console.log(chalk.greenBright("\nYour total cost for " + qtyChoice + " " + prodChoice.product_name + " is $" + totalCost + "."));
+                    console.log(chalk.greenBright("\nThank you! Come again!"));
 
                     // update quantity
                     connection.query("UPDATE products SET ? WHERE ?", [{
@@ -81,7 +81,7 @@ function orderProcess() {
                     ], function (err, res) {
                         if (err) throw err;
 
-                        checkAndPurchase();
+                        orderProcess();
                     });
 
                 } else {
